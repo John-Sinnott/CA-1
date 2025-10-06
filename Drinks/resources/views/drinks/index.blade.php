@@ -1,3 +1,6 @@
+
 <div>
-    <!-- Order your soul. Reduce your wants. - Augustine -->
+    @foreach ($drinks as $drink)
+        {{ $drink->brand}}
+    @endforeach
 </div>
