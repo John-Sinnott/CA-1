@@ -1,28 +1,32 @@
-<?php
 
-use App\Http\Controllers\DrinkController;
+<?php
+ 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\DrinkController;
+ 
 Route::get('/', function () {
     return view('welcome');
 });
-
+ 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
-
+ 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
-Route::group(["prefix" => "drinks"], function () {
-    Route::get("/", [DrinkController::class, "index"])->name("drinks.index");
-    Route::get("/{drink}", [DrinkController::class, "show"])->name("drinks.show");
-    Route::get("/{drink}/edit", [DrinkController::class, "edit"])->name("drinks.edit");
-    Route::get("/create", [DrinkController::class, "edit"])->name("drinks.create");
-});
-
+ 
+Route::get('/drinks', [DrinkController::class, 'index'])->name('drinks.index');
+Route::get('/drinks/create', [DrinkController::class, 'create'])->name('drinks.create');
+Route::get('/drinks/{book}', [DrinkController::class, 'show'])->name('drinks.show');
+Route::post('/drinks', [DrinkController::class, 'store'])->name('drinks.store');
+ 
+Route::get('/drinks/{book}/edit', [DrinkController::class, 'edit'])->name('drinks.edit');
+Route::put('/drinks/{book}', [DrinkController::class, 'update'])->name('drinks.update');
+Route::delete('/drinks/{book}', [DrinkController::class, 'destroy'])->name('drinks.destroy');
+ 
+ 
 require __DIR__.'/auth.php';
