@@ -21,12 +21,12 @@ Route::middleware('auth')->group(function () {
  
 Route::get('/drinks', [DrinkController::class, 'index'])->name('drinks.index');
 Route::get('/drinks/create', [DrinkController::class, 'create'])->name('drinks.create');
-Route::get('/drinks/{book}', [DrinkController::class, 'show'])->name('drinks.show');
+Route::get('/drinks/{drink}', [DrinkController::class, 'show'])->name('drinks.show');
 Route::post('/drinks', [DrinkController::class, 'store'])->name('drinks.store');
  
-Route::get('/drinks/{book}/edit', [DrinkController::class, 'edit'])->name('drinks.edit');
-Route::put('/drinks/{book}', [DrinkController::class, 'update'])->name('drinks.update');
-Route::delete('/drinks/{book}', [DrinkController::class, 'destroy'])->name('drinks.destroy');
+Route::get('/drinks/{drink}/edit', [DrinkController::class, 'edit'])->name('drinks.edit');
+Route::put('/drinks/{drink}', [DrinkController::class, 'update'])->name('drinks.update');
+Route::delete('/drinks/{drink}', [DrinkController::class, 'destroy'])->name('drinks.destroy');
  
  
 require __DIR__.'/auth.php';

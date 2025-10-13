@@ -21,6 +21,7 @@ class DrinkSeeder extends Seeder
         'brand' => 'Heineken',
         'vol' => '4.3%',
         'image_url' => 'heineken.jpg',
+        'description' => 'blaabllaaaa',
         'created_at' => $currentTimestamp,
         'updated_at' => $currentTimestamp
     ],
@@ -28,6 +29,7 @@ class DrinkSeeder extends Seeder
         'brand' => 'Smirnoff',
         'vol' => '40%',
         'image_url' => 'smirnoff.jpg',
+        'description' => 'blaabllaaaa',
         'created_at' => $currentTimestamp,
         'updated_at' => $currentTimestamp
     ],
@@ -35,6 +37,7 @@ class DrinkSeeder extends Seeder
         'brand' => 'Corona Extra',
         'vol' => '4.6%',
         'image_url' => 'corona.jpg',
+        'description' => 'blaabllaaaa',
         'created_at' => $currentTimestamp,
         'updated_at' => $currentTimestamp
     ],
@@ -42,6 +45,7 @@ class DrinkSeeder extends Seeder
         'brand' => 'Guiness',
         'vol' => '4.2%',
         'image_url' => 'guiness.jpg',
+        'description' => 'blaabllaaaa',
         'created_at' => $currentTimestamp,
         'updated_at' => $currentTimestamp
     ]

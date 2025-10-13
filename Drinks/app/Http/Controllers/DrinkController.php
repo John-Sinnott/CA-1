@@ -37,7 +37,7 @@ class DrinkController extends Controller
      */
     public function show(Drink $drink)
     {
-        //
+        return view('drinks.show')->with('drink', $drink);
     }
 
     /**
@@ -45,7 +45,7 @@ class DrinkController extends Controller
      */
     public function edit(Drink $drink)
     {
-        //
+        return view('drinks.edit')->with('drink',$drink);
     }
 
     /**
