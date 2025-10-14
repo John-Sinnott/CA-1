@@ -19,6 +19,7 @@
                                 :title="$drink->brand"
                                 :image="$drink->image_url"
                                 :vol="$drink->vol"
+                                :description="$drink->description"
                             />
                         </a>
                         @endforeach
@@ -35,4 +36,8 @@
             </div>
         </div>
     </div>
+    {{-- alert-success a component created to display a success message that may be sent from the controller for examplewhen a drink is deleted a message will display "Drink Deleted Successfully" will appear --}}
+    <x-alert-success>
+        {{ session('success') }}
+    </x-alert-success>
 </x-app-layout>                       

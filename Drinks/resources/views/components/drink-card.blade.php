@@ -2,6 +2,7 @@
   "title",
   "image",
   "vol",
+  'description' => 'No description available.'
 ])
 
 <div

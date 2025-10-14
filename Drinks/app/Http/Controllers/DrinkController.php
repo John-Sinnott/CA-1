@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Drink;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class DrinkController extends Controller
 {
@@ -21,7 +22,7 @@ class DrinkController extends Controller
      */
     public function create()
     {
-        //
+        return view('drinks.create');
     }
 
     /**
@@ -29,7 +30,34 @@ class DrinkController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validate input
+        $request->validate([
+            'brand' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'vol' => 'required|string|max:10',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+
+        ]);
+
+        // Check if the image is uploaded and handle it
+        $imageName = null;
+        if ($request->hasFile('image')) {
+
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('images/drinks'), $imageName);
+        }
+        // Create a Drink record in the database
+        Drink::create([
+            'brand' => $request->brand,
+            'description' => $request->description,
+            'vol' => $request->vol,
+            'image_url' => $imageName,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        //Redirect to the indexp age with a success message
+        return to_route('drinks.index')->with('success', 'Drink created successfully!');
     }
 
     /**
@@ -45,7 +73,7 @@ class DrinkController extends Controller
      */
     public function edit(Drink $drink)
     {
-        return view('drinks.edit')->with('drink',$drink);
+        return view('drinks.edit')->with('drink', $drink);
     }
 
     /**

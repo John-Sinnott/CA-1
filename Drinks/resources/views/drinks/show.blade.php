@@ -16,6 +16,7 @@
                               :title="$drink->brand"
                               :image="$drink->image_url"
                               :vol="$drink->vol"
+                              :description="$drink->description"
                             />
                     </div>
                 </div>

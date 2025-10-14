@@ -24,6 +24,10 @@
                         {{ __('View All Drinks') }}
                     </x-nav-link>
 
+                    <x-nav-link :href="route('drinks.create')" :active="request()->routeIs('drinks.create')">
+                        {{ __('Add New Drink') }}
+                    </x-nav-link>
+
                 </div>
             </div>
 

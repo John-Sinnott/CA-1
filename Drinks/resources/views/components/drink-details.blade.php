@@ -2,6 +2,7 @@
   "title",
   "image",
   "vol",
+  'description' => 'No description available.'
 ])
 <div>
   <div
@@ -29,5 +30,6 @@
       />
       <!-- Restrict image to max-w-xs (20rem) and ensure responsiveness -->
     </div>
+    <p class="text-gray-700 text-base"><span>{{$description}}</span></p>
   </div>
 </div>

@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('drinks', function (Blueprint $table) {
             $table->id();
-            $table->name();
-            $table->vol();
-            $table->timestamps();
-
+            $table->string('brand');       // Brand of the drink
+            $table->string('vol');         // Alcohol volume
+            $table->string('image_url');   // Image file name or URL
+            $table->text('description');   // Description of the drink
+            $table->timestamps();          // created_at and updated_at
         });
     }
 
