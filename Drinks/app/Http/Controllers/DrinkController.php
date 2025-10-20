@@ -81,7 +81,31 @@ class DrinkController extends Controller
      */
     public function update(Request $request, Drink $drink)
     {
-        //
+        $request->validate([
+            'brand' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'vol' => 'required|string|max:10',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        // Handle image upload if provided
+        if ($request->hasFile('image')) {
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('images/drinks'), $imageName);
+            $drink->image_url = $imageName;
+        }
+
+        // Update the Fields
+        $drink->brand = $request->brand;
+        $drink->description = $request->description;
+        $drink->vol = $request->vol;
+
+        // Save changes
+        $drink->save();
+
+        return redirect()
+            ->route('drinks.index')
+            ->with('success', 'Drink updated successfully!');
     }
 
     /**
@@ -89,6 +113,15 @@ class DrinkController extends Controller
      */
     public function destroy(Drink $drink)
     {
-        //
+        // If the drink has an image, delete it from storage
+        if ($drink->image_url && file_exists(public_path('images/drinks/' . $drink->image_url))) {
+            unlink(public_path('images/drinks/' . $drink->image_url));
+        }
+        
+        $drink->delete();
+
+        return redirect()
+            ->route('drinks.index')
+            ->with('success', 'Drink deleted successfully!');
     }
 }

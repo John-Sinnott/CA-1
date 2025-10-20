@@ -12,5 +12,5 @@
     {{ $title }}
     <span class="text-sm text-gray-500">({{ $vol }} ml)</span>
   </h4>
-  <img src="{{ asset("images/drinks/" . $image) }}" alt="{{ $title }}" />
+  <img src="{{ asset("images/drinks/" . $image) }}" alt="{{ $title }}" class="mx-auto mb-4  w-32 h-32 object-fit-cover" />
 </div>

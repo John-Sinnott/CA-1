@@ -6,7 +6,7 @@
 ])
 <div>
   <div
-    class="max-w-xl p-6 mx-auto bg-white border rounded-lg shadow-md hover:shadow-lg transition duration-300"
+    class="max-w-xl p-6 mx-auto bg-cyan-100 border rounded-lg shadow-md hover:shadow-lg transition duration-300"
   >
     <!-- Limit the overall container width to make the component more compact -->
 
