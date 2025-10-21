@@ -5,8 +5,8 @@
             {{ __('Drinks') }}
         </h2>
     </x-slot>
-
-    <div class="py-12">
+{{--  Padding top-bottom 12 --}}
+    <div class="py-12"> 
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-cyan-200 overflow-hidden shadow-sm sm:rounded-lg p-6">
                 <div class="p-6 text-gray-900">
@@ -24,6 +24,7 @@
                             />
                         </a>
                         {{-- Edit and delete Buttons --}}
+                        {{-- a links that route to a file for, drinks.edit for edit button and drinks.destroy goes to a function that destroys the selected drink --}}
                         <div class="mt-4 flex space-x-2">
                             <a href="{{ route('drinks.edit', $drink)}}" class="text-gray-800  hover:bg-blue-400 font-bold py-2 px-4 rounded" >Edit</a>
                             <form action="{{ route('drinks.destroy', $drink)}}" method="POST" onsubmit="return confirm('Are you sure you want to delete this drink?');">
@@ -36,15 +37,6 @@
 
                         @endforeach
                     </div>
-                {{-- <ul class="flex flex-wrap gap-6">
-                    @foreach ($drinks as $drink)
-                        <li class="w-48 border rounded p-4 flex flex-col items-center">
-                            <img src="{{ asset('images/' . $drink->image_url) }}" alt="{{ $drink->brand }}" />
- 
-                            <span class="font-semibold text-center">{{ $drink->brand }}</span>
-                        </li>
-                    @endforeach
-                </ul> --}}
             </div>
         </div>
     </div>

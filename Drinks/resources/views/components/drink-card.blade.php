@@ -10,7 +10,7 @@
 >
   <h4 class="font-bold text-lg">
     {{ $title }}
-    <span class="text-sm text-gray-500">({{ $vol }} ml)</span>
+    <span class="text-sm text-gray-500">({{ $vol }} ABV)</span>
   </h4>
   <img src="{{ asset("images/drinks/" . $image) }}" alt="{{ $title }}" class="mx-auto mb-4  w-32 h-32 object-fit-cover" />
 </div>

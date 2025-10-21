@@ -117,7 +117,7 @@ class DrinkController extends Controller
         if ($drink->image_url && file_exists(public_path('images/drinks/' . $drink->image_url))) {
             unlink(public_path('images/drinks/' . $drink->image_url));
         }
-        
+
         $drink->delete();
 
         return redirect()
