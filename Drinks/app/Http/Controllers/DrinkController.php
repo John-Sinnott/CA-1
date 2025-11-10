@@ -65,7 +65,8 @@ class DrinkController extends Controller
      */
     public function show(Drink $drink)
     {
-        return view('drinks.show')->with('drink', $drink);
+        $drink->load('stocks.user');
+        return view('drinks.show', compact('drink'));
     }
 
     /**

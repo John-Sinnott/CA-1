@@ -26,12 +26,14 @@
                         {{-- Edit and delete Buttons --}}
                         {{-- a links that route to a file for, drinks.edit for edit button and drinks.destroy goes to a function that destroys the selected drink --}}
                         <div class="mt-4 flex space-x-2">
+                            @if(auth()->user()->role === 'admin')
                             <a href="{{ route('drinks.edit', $drink)}}" class="text-gray-800  hover:bg-blue-400 font-bold py-2 px-4 rounded" >Edit</a>
                             <form action="{{ route('drinks.destroy', $drink)}}" method="POST" onsubmit="return confirm('Are you sure you want to delete this drink?');">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class=" hover:bg-red-600 text-gray-800 font-bold py-2 px-4 rounded">Delete</button>
                             </form>
+                            @endif
                         </div>
                     </div>
 

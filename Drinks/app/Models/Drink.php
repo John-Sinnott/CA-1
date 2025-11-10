@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Drink extends Model
 {
     use HasFactory;
-    
+
     protected $fillable = [
         'id',
         'brand',
@@ -16,7 +16,13 @@ class Drink extends Model
         'image_url',
         'created_at',
         'updated_at',
-        'description'
-        
+        'description',
+        'stock'
+
     ];
+
+    public function stocks()
+    {
+        return $this->hasMany(Stock::class);
+    }
 }

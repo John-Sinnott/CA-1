@@ -24,15 +24,10 @@
                         {{ __('View All Drinks') }}
                     </x-nav-link>
 
+                    @if(auth()->user()->role === 'admin')
                     <x-nav-link :href="route('drinks.create')" :active="request()->routeIs('drinks.create')">
                         {{ __('Add New Drink') }}
                     </x-nav-link>
-                    
-                    {{-- Create link only appears for admin users --}}
-                    @if(auth()->user()->role === 'admin')
-                        <x-nav-link :href="route('drinks.create')" :active="request()->routeIs('drinks.create')">
-                            {{ __('Create New Drinks') }}
-                        </x-nav-link>
                     @endif
                 </div>
             </div>

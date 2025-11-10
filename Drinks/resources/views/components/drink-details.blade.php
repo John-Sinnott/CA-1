@@ -2,7 +2,8 @@
   "title",
   "image",
   "vol",
-  'description' => 'No description available.'
+  'description' => 'No description available.',
+  "stocks" => []
 ])
 <div>
   <div
@@ -32,4 +33,5 @@
     </div>
     <p class="text-gray-700 text-base"><span>{{$description}}</span></p>
   </div>
+
 </div>
