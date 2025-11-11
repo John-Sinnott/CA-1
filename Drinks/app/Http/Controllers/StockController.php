@@ -48,9 +48,7 @@ class StockController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Stock $stock) {
-
-    }
+    public function show(Stock $stock) {}
 
     /**
      * Show the form for editing the specified resource.
@@ -72,7 +70,7 @@ class StockController extends Controller
 
         $stock->update($validated);
 
-        return redirect()->route('drinks.show', $drink)
+        return redirect()->route('drinks.show', $stock->drink_id)
             ->with('success', 'Stock updated successfully.');
     }
 

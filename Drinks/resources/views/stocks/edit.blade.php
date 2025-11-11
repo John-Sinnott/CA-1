@@ -1,0 +1,44 @@
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            Edit Review
+        </h2>
+    </x-slot>
+
+    <div class="py-12 max-w-2xl mx-auto">
+        <div class="bg-white p-6 rounded-lg shadow">
+            <form action="{{ route('stocks.update', $stock) }}" method="POST" class="space-y-4">
+                @csrf
+                @method('PUT')
+
+                <div>
+                    <label for="rating" class="block font-medium text-gray-700">Stock Purchased (%)</label>
+                    <select name="rating" id="rating" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+                        @for ($i = 1; $i <= 10; $i++)
+                            <option value="{{ $i }}" {{ $stock->rating == $i ? 'selected' : '' }}>
+                                {{ $i * 10 }}%
+                            </option>
+                        @endfor
+                    </select>
+                </div>
+
+                <div>
+                    <label for="comment" class="block font-medium text-gray-700">Review</label>
+                    <textarea name="comment" id="comment" rows="3" 
+                        class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">{{ $stock->comment }}</textarea>
+                </div>
+
+                <div class="flex space-x-2">
+                    <button type="submit" 
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        Update
+                    </button>
+                    <a href="{{ route('drinks.show', $stock->drink_id) }}" 
+                        class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">
+                        Cancel
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</x-app-layout>
