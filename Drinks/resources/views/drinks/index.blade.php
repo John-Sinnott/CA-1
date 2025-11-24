@@ -8,13 +8,13 @@
 {{--  Padding top-bottom 12 --}}
     <div class="py-12"> 
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-cyan-200 overflow-hidden shadow-sm sm:rounded-lg p-6">
+            <div class="bg-gray-400 overflow-hidden shadow-sm sm:rounded-lg p-6">
                 <div class="p-6 text-gray-900">
                     <h3 class="font-semibold text-lg mb-4">List of Drinks</h3>
                 </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         @foreach($drinks as $drink)
-                        <div class=" bg-teal-100 border p-4 rounded-lg shadow-md">
+                        <div class=" bg-zinc-200 border p-4 rounded-lg shadow-md">
                         <a href="{{route('drinks.show', $drink) }}">
                             <x-drink-card
                                 :title="$drink->brand"
@@ -27,11 +27,11 @@
                         {{-- a links that route to a file for, drinks.edit for edit button and drinks.destroy goes to a function that destroys the selected drink --}}
                         <div class="mt-4 flex space-x-2">
                             @if(auth()->user()->role === 'admin')
-                            <a href="{{ route('drinks.edit', $drink)}}" class="text-gray-800  hover:bg-blue-400 font-bold py-2 px-4 rounded" >Edit</a>
+                            <a href="{{ route('drinks.edit', $drink)}}" class="text-black-900 bg-blue-300 hover:bg-blue-600 font-bold py-2 px-4 rounded" >Edit</a>
                             <form action="{{ route('drinks.destroy', $drink)}}" method="POST" onsubmit="return confirm('Are you sure you want to delete this drink?');">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class=" hover:bg-red-600 text-gray-800 font-bold py-2 px-4 rounded">Delete</button>
+                                <button type="submit" class=" hover:bg-red-600 text-gray-800 bg-red-300 font-bold py-2 px-4 rounded">Delete</button>
                             </form>
                             @endif
                         </div>

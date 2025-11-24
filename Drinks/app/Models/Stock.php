@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Stock extends Model 
+class Stock extends Model
 {
     use HasFactory;
 
@@ -13,9 +13,10 @@ class Stock extends Model
         'user_id',
         'drink_id',
         'rating',
+        'stock_type',
         'comment',
     ];
-    
+
     public function drink()
     {
         return $this->belongsTo(Drink::class);

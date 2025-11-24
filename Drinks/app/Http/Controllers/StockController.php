@@ -30,14 +30,15 @@ class StockController extends Controller
     public function store(Request $request, Drink $drink)
     {
         $validated = $request->validate([
-            'rating' => 'required|integer|min:1|max:10', // 10%-increments
+            'rating' => 'required|integer|min:1|max:25',
+            'stock_type' => 'required|string',
             'comment' => 'nullable|string|max:1000',
         ]);
 
-        // Create a new stock row
         $drink->stocks()->create([
             'user_id' => auth()->id(),
             'rating' => $validated['rating'],
+            'stock_type' => $validated['stock_type'],
             'comment' => $validated['comment'],
         ]);
 
@@ -64,8 +65,15 @@ class StockController extends Controller
     public function update(Request $request, Drink $drink, Stock $stock)
     {
         $validated = $request->validate([
-            'rating' => 'required|integer|min:1|max:5',
+            'rating' => 'required|integer|min:1|max:25',
+            'stock_type' => 'required|string',
             'comment' => 'nullable|string|max:1000',
+        ]);
+
+        $stock->update([
+            'rating' => $validated['rating'],
+            'stock_type' => $validated['stock_type'],
+            'comment' => $validated['comment'],
         ]);
 
         $stock->update($validated);

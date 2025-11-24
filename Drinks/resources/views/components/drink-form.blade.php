@@ -6,6 +6,8 @@
         @method($method)
     @endif
 
+
+    <div class="">
     <!-- Brand -->
     <div
       class="
@@ -15,7 +17,7 @@
         <label for="brand"
           class="
             block
-            text-sm text-gray-700
+            text-md font-bold text-white
           "
         >Brand</label>
         <input
@@ -31,13 +33,14 @@
                 border-gray-300 rounded-md
                 shadow-sm
                 focus:ring-indigo-500 focus:border-indigo-500
+                bg-neutral-200
               "
             
         />
         @error('brand')
             <p
               class="
-                text-sm text-red-600
+                text-md text-red-600 font-bold
               "
             >{{ $message }}</p>
         @enderror
@@ -52,7 +55,7 @@
         <label for="vol"
           class="
             block
-            text-sm text-gray-700
+            text-md font-bold text-white
           "
         >Volume (ml)</label>
         <input
@@ -68,13 +71,14 @@
                 border-gray-300 rounded-md
                 shadow-sm
                 focus:ring-indigo-500 focus:border-indigo-500
+                bg-neutral-200
               "
             
         />
         @error('vol')
             <p
               class="
-                text-sm text-red-600
+                text-md font-bold text-red-600 
               "
             >{{ $message }}</p>
         @enderror
@@ -89,7 +93,7 @@
         <label for="description"
           class="
             block
-            text-sm text-gray-700
+            text-md font-bold text-white
           "
         >Description</label>
         <textarea
@@ -103,13 +107,14 @@
                 border-gray-300 rounded-md
                 shadow-sm
                 focus:ring-indigo-500 focus:border-indigo-500
+                bg-neutral-200
               "
             
         >{{ old('description', $drink->description ?? '') }}</textarea>
         @error('description')
             <p
               class="
-                text-sm text-red-600
+                text-md font-bold text-red-600
               "
             >{{ $message }}</p>
         @enderror
@@ -124,7 +129,7 @@
         <label for="image"
           class="
             block
-            text-sm text-gray-700
+            text-md font-bold text-white
           "
         >Drink Image</label>
         <input
@@ -145,7 +150,7 @@
         @error('image')
             <p
               class="
-                text-sm text-red-600
+                text-md text-red-600 font-bold
               "
             >{{ $message }}</p>
         @enderror
@@ -157,4 +162,5 @@
             {{ isset($drink) ? 'Update Drink' : 'Add Drink' }}
         </x-primary-button>
     </div>
-</form>
+  </form>
+</div>

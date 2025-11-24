@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->integer('rating')->unsigned()->default(1); // rating from 1 - 5
             $table->text('comment')->nullable();
+            $table->enum('stock_type', ['single', 'four pack', 'six pack', '10 pack', '12 pack'])->default('single');
             $table->timestamps();
         });
     }
