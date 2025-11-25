@@ -2,10 +2,13 @@
 
 namespace Database\Seeders;
 
+use App\Models\Drink;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
+use App\Models\Order;
+
 
 class DrinkSeeder extends Seeder
 {
@@ -16,7 +19,7 @@ class DrinkSeeder extends Seeder
     {
         $currentTimestamp = Carbon::now();
 
-        DB::table('drinks')->Insert([
+       $drinks = [
             [
                 'brand' => 'Heineken',
                 'vol' => '4.3%',
@@ -49,7 +52,15 @@ class DrinkSeeder extends Seeder
                 'created_at' => $currentTimestamp,
                 'updated_at' => $currentTimestamp
             ]
-        ]);
+        ];
+
+        foreach ($drinks as $drinkData) {
+            $drink = Drink::create(array_merge($drinkData, ['created_at' => $currentTimestamp, 'updated_at' => $currentTimestamp]));
+
+            $orders = Order::inRandomOrder()->take(2)->pluck('id');
+
+            $drink->orders()->attach($orders);
+        }
 
         DB::table('users')->Insert([
             [

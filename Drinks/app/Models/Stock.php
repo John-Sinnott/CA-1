@@ -14,13 +14,14 @@ class Stock extends Model
         'drink_id',
         'rating',
         'stock_type',
-        'comment',
+        'comment'
+
     ];
 
-    public function drink()
-    {
-        return $this->belongsTo(Drink::class);
-    }
+    // public function drinks()
+    // {
+    //     return $this->belongsTo(Drink::class);
+    // }
 
     public function user()
     {

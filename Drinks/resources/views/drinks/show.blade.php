@@ -82,11 +82,11 @@
                         <div class="w-1/2">
                             <label for="stock_type" class="block text-black font-medium text-bold ">Type of Stock</label>
                             <select name="stock_type" id="stock_type" required class="bg-gray-200 mt-1 block w-full border-gray-300 rounded-md shadow-sm">
-                                <option  value="single">Single Item</option>
-                                <option  value="four_pack">Four Pack</option>
-                                <option  value="six_pack">Six Pack</option>
-                                <option  value="ten_pack">Ten Pack</option>
-                                <option  value="twelve_pack">Twelve Pack</option>
+                                <option  value="Single">Single Item</option>
+                                <option  value="Four Pack">Four Pack</option>
+                                <option  value="Six Pack">Six Pack</option>
+                                <option  value="Ten Pack">Ten Pack</option>
+                                <option  value="twelve pack">Twelve Pack</option>
                             </select>
                         </div>
                     </div>

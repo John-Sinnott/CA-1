@@ -10,12 +10,9 @@ class Drink extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id',
         'brand',
         'vol',
         'image_url',
-        'created_at',
-        'updated_at',
         'description',
         'stock'
 
@@ -23,6 +20,11 @@ class Drink extends Model
 
     public function stocks()
     {
-        return $this->hasMany(Stock::class);
+        return $this->hasMany(Stock::class); //speicfys the pivot table
+    }
+
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class);
     }
 }

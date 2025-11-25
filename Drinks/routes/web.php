@@ -4,6 +4,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DrinkController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\StockController;
 
 Route::get('/', function () {
@@ -48,5 +49,7 @@ Route::put('drinks/{drink}/stocks/{stock}', [StockController::class, 'update'])
 
 Route::delete('drinks/{drink}/stocks/{stock}', [StockController::class, 'destroy'])
     ->name('drinks.stocks.destroy');
+
+Route::resource('orders', OrderController::class)->middleware('auth');
 
 require __DIR__ . '/auth.php';
