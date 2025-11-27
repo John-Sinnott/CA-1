@@ -45,13 +45,79 @@ class DrinkSeeder extends Seeder
                 'updated_at' => $currentTimestamp
             ],
             [
-                'brand' => 'Guiness',
+                'brand' => 'Guinness',
                 'vol' => '4.2%',
-                'image_url' => 'guiness.jpg',
+                'image_url' => 'guinness.jpg',
                 'description' => 'Guinness  is a stout that originated in the brewery of Arthur Guinness at St. Jamess Gate, Dublin, Ireland, in the 18th century. It is now owned by the multinational alcoholic beverage maker Diageo. It is one of the most successful alcohol brands worldwide, brewed in almost 50 countries, and available in over 120.[2][3] Sales in 2011 amounted to 850,000,000 litres It is the highest-selling beer in both Ireland and the United Kingdom.',
                 'created_at' => $currentTimestamp,
                 'updated_at' => $currentTimestamp
-            ]
+            ],
+
+
+            [
+                'brand' => 'Disaronno',
+                'vol' => '28%',
+                'image_url' => 'disaronno.jpg',
+                'description' => 'Disaronno Originale (28% ABV, 56 proof) is a type of amaretto—an amber-colored liqueur with a characteristic almond taste, although it does not actually contain almonds. It is produced in Saronno, in the Lombardy region of Italy, by ILLVA Saronno and is sold worldwide.',
+                'created_at' => $currentTimestamp,
+                'updated_at' => $currentTimestamp
+            ],
+            [
+                'brand' => 'FireBall Cinnamon Whiskey',
+                'vol' => '33%',
+                'image_url' => 'fireball.jpg',
+                'description' => 'Fireball Cinnamon Whisky is a liqueur produced by the Sazerac Company. It is a mixture of a Canadian whisky base with cinnamon flavoring and sweeteners, and is bottled at 33% alcohol by volume (66 U.S. proof).',
+                'created_at' => $currentTimestamp,
+                'updated_at' => $currentTimestamp
+            ],
+            [
+                'brand' => 'Buzz Ball',
+                'vol' => '15%',
+                'image_url' => 'buzzball.jpg',
+                'description' => 'BuzzBallz is a range of US-owned ready to drink cocktail mix currently manufactured by Sazerac Company, Inc. Originally devised as a Masters degree project, it was incorporated as BuzzBallz, LLC and markets itself as a woman-owned and family-run business. It was acquired by Sazerac in 2024. The company manufactures a wide range of beverages sold domestically and internationally and describes itself as a distillery, winery, and brewery in the state of Texas.',
+                'created_at' => $currentTimestamp,
+                'updated_at' => $currentTimestamp
+            ],
+            [
+                'brand' => 'Konrad',
+                'vol' => '4.8%',
+                'image_url' => 'konrad.png',
+                'description' => 'A wonderful example of a Czech Pilsner in the mid-session strength. The aroma is pleasant and mild, earthy and herbaceous, with notes of biscuit, sweet bready malt and hints of grass. The taste is beautifully malty and grassy coupled with a delicate bitterness. Medium bodied with excellent drinkability and a semi-dry finish. A cleanly lagered beer to enjoy in full on Friday and the weekend. ',
+                'created_at' => $currentTimestamp,
+                'updated_at' => $currentTimestamp
+            ],
+            [
+                'brand' => 'Stella Artois',
+                'vol' => '5.2%',
+                'image_url' => 'stella.jpg',
+                'description' => 'Stella Artois is a pilsner beer, first brewed in 1926 by Brouwerij Artois in Leuven, Belgium. In its original form, the beer is 5.2 per cent ABV, the countrys standard for pilsners. The beer is sold in many EU countries, but also in the US, UK, Canada and Australia, where it has a reduced ABV. Stella Artois is owned by Interbrew International B.V. which is a subsidiary of the worlds largest brewer',
+                'created_at' => $currentTimestamp,
+                'updated_at' => $currentTimestamp
+            ],
+            [
+                'brand' => 'Soplica Vodka',
+                'vol' => '60%',
+                'image_url' => 'soplica.jpg',
+                'description' => 'Soplica ([sɔplitsa]) is one of the older brands of Polish pure and flavoured vodka, having been first produced in 1891 (in a factory that was opened in 1888).[1] Although the origins of vodka in Poland can be traced back to as early as the 8th century, Soplica is one of the older industrially produced brands of vodka in the country.',
+                'created_at' => $currentTimestamp,
+                'updated_at' => $currentTimestamp
+            ],
+            [
+                'brand' => 'Poitín',
+                'vol' => '90%',
+                'image_url' => 'potin.jpg',
+                'description' => 'Poitín, poteen or potcheen, is a traditional Irish distilled beverage (40–90% ABV). Former common names for Poitín were "Irish moonshine" and "mountain dew". It was traditionally distilled in a small pot still, and the term is a diminutive of the Irish word pota, meaning pot. In accordance with the Irish Poteen/Irish Poitín technical file, it can be made only from cereals, grain, whey, sugar beet, molasses and potatoes.',
+                'created_at' => $currentTimestamp,
+                'updated_at' => $currentTimestamp
+            ],
+            [
+                'brand' => 'Absinthe',
+                'vol' => '74%',
+                'image_url' => 'absinthe.png',
+                'description' => 'Absinthe is an anise-flavoured spirit derived from several plants, including the flowers and leaves of Artemisia absinthium ("grand wormwood"), together with green anise, sweet fennel, and other medicinal and culinary herbs.[1] Historically described as a highly alcoholic spirit, it is 45–74% ABV or 90–148 proof in the US.',
+                'created_at' => $currentTimestamp,
+                'updated_at' => $currentTimestamp
+            ],
         ];
 
         foreach ($drinks as $drinkData) {

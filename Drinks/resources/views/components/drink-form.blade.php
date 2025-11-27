@@ -6,153 +6,64 @@
         @method($method)
     @endif
 
-
-    <div class="">
     <!-- Brand -->
-    <div
-      class="
-        mb-4
-      "
-    >
-        <label for="brand"
-          class="
-            block
-            text-md font-bold text-white
-          "
-        >Brand</label>
+    <div class="mb-4">
+        <label for="brand" class="block text-md font-bold text-white">Brand</label>
         <input
             type="text"
             name="brand"
             id="brand"
             value="{{ old('brand', $drink->brand ?? '') }}"
             required
-              class="
-                block
-                w-full
-                mt-1
-                border-gray-300 rounded-md
-                shadow-sm
-                focus:ring-indigo-500 focus:border-indigo-500
-                bg-neutral-200
-              "
-            
+            class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 bg-neutral-200"
         />
         @error('brand')
-            <p
-              class="
-                text-md text-red-600 font-bold
-              "
-            >{{ $message }}</p>
+            <p class="text-md text-red-600 font-bold">{{ $message }}</p>
         @enderror
     </div>
 
     <!-- Volume -->
-    <div
-      class="
-        mb-4
-      "
-    >
-        <label for="vol"
-          class="
-            block
-            text-md font-bold text-white
-          "
-        >Volume (ml)</label>
+    <div class="mb-4">
+        <label for="vol" class="block text-md font-bold text-white">Volume (ml)</label>
         <input
             type="text"
             name="vol"
             id="vol"
             value="{{ old('vol', $drink->vol ?? '') }}"
             required
-              class="
-                block
-                w-full
-                mt-1
-                border-gray-300 rounded-md
-                shadow-sm
-                focus:ring-indigo-500 focus:border-indigo-500
-                bg-neutral-200
-              "
-            
+            class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 bg-neutral-200"
         />
         @error('vol')
-            <p
-              class="
-                text-md font-bold text-red-600 
-              "
-            >{{ $message }}</p>
+            <p class="text-md font-bold text-red-600">{{ $message }}</p>
         @enderror
     </div>
 
     <!-- Description -->
-    <div
-      class="
-        mb-4
-      "
-    >
-        <label for="description"
-          class="
-            block
-            text-md font-bold text-white
-          "
-        >Description</label>
+    <div class="mb-4">
+        <label for="description" class="block text-md font-bold text-white">Description</label>
         <textarea
             name="description"
             id="description"
             rows="3"
-              class="
-                block
-                w-full
-                mt-1
-                border-gray-300 rounded-md
-                shadow-sm
-                focus:ring-indigo-500 focus:border-indigo-500
-                bg-neutral-200
-              "
-            
+            class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 bg-neutral-200"
         >{{ old('description', $drink->description ?? '') }}</textarea>
         @error('description')
-            <p
-              class="
-                text-md font-bold text-red-600
-              "
-            >{{ $message }}</p>
+            <p class="text-md font-bold text-red-600">{{ $message }}</p>
         @enderror
     </div>
 
     <!-- Image -->
-    <div
-      class="
-        mb-4
-      "
-    >
-        <label for="image"
-          class="
-            block
-            text-md font-bold text-white
-          "
-        >Drink Image</label>
+    <div class="mb-4">
+        <label for="image" class="block text-md font-bold text-white">Drink Image</label>
         <input
             type="file"
             name="image"
             id="image"
             {{ isset($drink) ? '' : 'required' }}
-              class="
-                block
-                w-full
-                mt-1
-                border-gray-300 rounded-md
-                shadow-sm
-                focus:ring-indigo-500 focus:border-indigo-500
-              "
-            
+            class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
         />
         @error('image')
-            <p
-              class="
-                text-md text-red-600 font-bold
-              "
-            >{{ $message }}</p>
+            <p class="text-md text-red-600 font-bold">{{ $message }}</p>
         @enderror
     </div>
 
@@ -162,5 +73,4 @@
             {{ isset($drink) ? 'Update Drink' : 'Add Drink' }}
         </x-primary-button>
     </div>
-  </form>
-</div>
+</form>
