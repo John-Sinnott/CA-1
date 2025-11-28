@@ -24,9 +24,29 @@
                         {{ __('View All Drinks') }}
                     </x-nav-link>
 
+                    <x-nav-link :href="route('orders.index')" :active="request()->routeIs('orders.index')">
+                        {{ __('View All Orders') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('stocks.index')" :active="request()->routeIs('stocks.index')">
+                        {{ __('View All Stocks') }}
+                    </x-nav-link>
+
                     @if(auth()->user()->role === 'admin')
                     <x-nav-link :href="route('drinks.create')" :active="request()->routeIs('drinks.create')">
                         {{ __('Add New Drink') }}
+                    </x-nav-link>
+                    @endif
+
+                    @if(auth()->user()->role === 'admin')
+                    <x-nav-link :href="route('orders.create')" :active="request()->routeIs('orders.create')">
+                        {{ __('Add New Order') }}
+                    </x-nav-link>
+                    @endif
+
+                    @if(auth()->user()->role === 'admin')
+                    <x-nav-link :href="route('stocks.create')" :active="request()->routeIs('stocks.create')">
+                        {{ __('Add New Stock') }}
                     </x-nav-link>
                     @endif
                 </div>

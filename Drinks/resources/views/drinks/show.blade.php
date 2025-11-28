@@ -86,7 +86,7 @@
                                 <option  value="Four Pack">Four Pack</option>
                                 <option  value="Six Pack">Six Pack</option>
                                 <option  value="Ten Pack">Ten Pack</option>
-                                <option  value="twelve pack">Twelve Pack</option>
+                                <option  value="Twelve Pack">Twelve Pack</option>
                             </select>
                         </div>
                     </div>

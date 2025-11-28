@@ -52,4 +52,6 @@ Route::delete('drinks/{drink}/stocks/{stock}', [StockController::class, 'destroy
 
 Route::resource('orders', OrderController::class)->middleware('auth');
 
+Route::resource('stocks', StockController::class);
+
 require __DIR__ . '/auth.php';

@@ -11,7 +11,6 @@ class Stock extends Model
 
     protected $fillable = [
         'user_id',
-        'drink_id',
         'rating',
         'stock_type',
         'comment'
@@ -27,4 +26,9 @@ class Stock extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function drink()
+{
+    return $this->belongsTo(Drink::class);
+}
 }

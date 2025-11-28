@@ -14,9 +14,7 @@
                 <div>
                      <label for="rating" class="block font-medium text-gray-700">Rating</label>
                                     <select name="rating" id="rating" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
-                                      
-                                         {{-- This loop creates option elements from 1 - 10.
-                                            so i = 1 and the loop runs untill it reaches 10 going up in increments of 1 each time creating an option value for each number. --}}
+                                         {{-- This loop creates option elements from 1 - 10. so i = 1 and the loop runs untill it reaches 10 going up in increments of 1 each time creating an option value for each number. --}}
                                          @for ($i = 1; $i <= 10; $i++)
                                              <option value="{{ $i }}" {{ (old('rating', $stock->rating ?? '') == $i) ? 'selected' : '' }}>
                                                 {{ $i }}
@@ -32,11 +30,11 @@
 
                 <div>
                     <select name="stock_type" id="stock_type">
-                                <option  value="single">Single Item</option>
-                                <option  value="four_pack">Four Pack</option>
-                                <option  value="six_pack">Six Pack</option>
-                                <option  value="ten_pack">Ten Pack</option>
-                                <option  value="twelve_pack">Twelve Pack</option>
+                                <option  value="Single">Single Item</option>
+                                <option  value="Four Pack">Four Pack</option>
+                                <option  value="Six Pack">Six Pack</option>
+                                <option  value="Ten Pack">Ten Pack</option>
+                                <option  value="Twelve Pack">Twelve Pack</option>
                             </select>
                 </div>
 

@@ -13,7 +13,8 @@ class StockController extends Controller
      */
     public function index()
     {
-        //
+        $stocks = Stock::with('drink')->get();
+        return view('stocks.index', compact('stocks'));
     }
 
     /**
@@ -21,19 +22,23 @@ class StockController extends Controller
      */
     public function create()
     {
-        //
+        $drinks = Drink::all(); // fetch all drinks
+        return view('stocks.create', compact('drinks'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, Drink $drink)
+    public function store(Request $request,)
     {
         $validated = $request->validate([
+            'drink_id' => 'required|exists:drinks,id',
             'rating' => 'required|integer|min:1|max:25',
             'stock_type' => 'required|string',
             'comment' => 'nullable|string|max:1000',
         ]);
+
+        $drink = Drink::findOrFail($validated['drink_id']);
 
         $drink->stocks()->create([
             'user_id' => auth()->id(),
