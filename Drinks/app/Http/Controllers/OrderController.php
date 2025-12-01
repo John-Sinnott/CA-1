@@ -36,14 +36,12 @@ class OrderController extends Controller
             'comment' => 'nullable|string|max:1000',
             'order_date' => 'nullable|date',
             'drinks' => 'nullable|array',
-            'quantity' => 'nullable|integer|min:1',
         ]);
 
         $order = Order::create([
             'customer_name' => $data['customer_name'],
             'comment' => $data['comment'] ?? null,
             'order_date' => $data['order_date'] ?? null,
-            'quantity' => $data['quantity'] ?? 0,
         ]);
 
         // Attach selected drinks to the pivot table 
@@ -87,14 +85,12 @@ class OrderController extends Controller
             'comment' => 'nullable|string|max:1000',
             'order_date' => 'nullable|date',
             'drinks' => 'nullable|array',
-            'quantity' => 'nullable|integer|min:1',
         ]);
 
         $order->update([
             'customer_name' => $data['customer_name'],
             'comment' => $data['comment'] ?? null,
             'order_date' => $data['order_date'] ?? null,
-            'quantity' => $data['quantity'] ?? $order->quantity,
         ]);
 
 

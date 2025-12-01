@@ -27,7 +27,7 @@
                         <p class="text-gray-600">No Ratings yet.</p>
                     @else
                         <ul class="mt-4 space-y-4">
-                            @foreach($drink->stocks as $stock)
+                            @foreach($stocks as $stock)
                                 <li class="bg-gray-300 p-4 rounded-lg">
                                     <p class="font-semibold">
                                         {{ $stock->user->name }} 

@@ -19,7 +19,6 @@
                                 <x-order-card
                                 :customer_name="$order->customer_name"
                                 :comment="$order->comment"
-                                :quantity="$order->quantity"
                                 :order_date="$order->order_date"
                                 :order="$order"
                                 

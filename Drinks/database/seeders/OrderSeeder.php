@@ -46,11 +46,15 @@ class OrderSeeder extends Seeder
         ];
 
         foreach ($orders as $data) {
-            $drinkIds = $data['drinks'] ?? [];
-            unset($data['drinks']); // remove before creating order
 
+            // Takes the drink ID's from the drinks being added
+            $drinkIds = $data['drinks'] ?? [];
+            unset($data['drinks']); // remove before creating order so only the order fields remain in db
+
+            // Creates new order using the data array
             $order = Order::create($data);
 
+            // if the order has related drinks it attaches the m via the pivot table
             if (!empty($drinkIds)) {
                 $order->drinks()->attach($drinkIds);
             }

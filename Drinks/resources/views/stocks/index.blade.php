@@ -34,10 +34,14 @@
                             <td class="px-6 py-4">{{ $stock->stock_type }}</td>
                             <td class="px-6 py-4  space-x-2">
                                 <!-- view link to route to stocks.show which shows the indivual stock information -->
-                                <a href="{{ route('stocks.show', $stock) }}" class="text-blue-600 hover:text-blue-900">View</a>
+                                <a href="{{ route('drinks.stocks.show', ['drink' => $stock->drink->id, 'stock' => $stock->id]) }}" class="text-blue-600 hover:text-blue-900">
+                                    View
+                                </a>
                                 <!-- edit link routes to stocks.edit to edit and update a stock -->
-                                <a href="{{ route('stocks.edit', $stock) }}" class="text-yellow-600 hover:text-yellow-900">Edit</a>
-                                <form action="{{ route('stocks.destroy', $stock) }}" method="POST" class="inline-block">
+                                <a href="{{ route('drinks.stocks.edit', ['drink' => $stock->drink->id, 'stock' => $stock->id]) }}" class="text-yellow-600 hover:text-yellow-900">
+                                    Edit
+                                </a>
+                                <form action="{{ route('drinks.stocks.destroy', ['drink' => $stock->drink->id, 'stock' => $stock->id]) }}" method="POST" class="inline-block">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="text-red-600 hover:text-red-900" onclick="return confirm('Are you sure?')">Delete</button>

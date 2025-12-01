@@ -35,11 +35,13 @@ Route::delete('/drinks/{drink}', [DrinkController::class, 'destroy'])->name('dri
 //this route is designed to takea drink parameter, so it expects drinks/{drink}/stocks in the URL
 //the route name 'stocks.store' is what we mention in the view e.g <form action="{{ route('drinks.stocks.store', $drink) }} " .....
 
-Route::resource('stocks', StockController::class)->only(['edit', 'update', 'destroy']);
 
 
 Route::post('drinks/{drink}/stocks', [StockController::class, 'store'])
     ->name('drinks.stocks.store');
+
+    Route::get('drinks/{drink}/stocks/{stock}', [StockController::class, 'show'])
+    ->name('drinks.stocks.show');
 
 Route::get('drinks/{drink}/stocks/{stock}/edit', [StockController::class, 'edit'])
     ->name('drinks.stocks.edit');
@@ -49,7 +51,7 @@ Route::put('drinks/{drink}/stocks/{stock}', [StockController::class, 'update'])
 
 Route::delete('drinks/{drink}/stocks/{stock}', [StockController::class, 'destroy'])
     ->name('drinks.stocks.destroy');
-
+   
 Route::resource('orders', OrderController::class)->middleware('auth');
 
 Route::resource('stocks', StockController::class);

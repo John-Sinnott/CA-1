@@ -1,6 +1,6 @@
 @props(['action', 'method', 'drink'])
 
-<form action="{{ $action }}" method="POST" enctype="multipart/form-data">
+<form action="{{ $action }}" method="POST" enctype="multipart/form-data" class="">
     @csrf
     @if($method === 'PUT' || $method === 'PATCH')
         @method($method)
@@ -8,7 +8,7 @@
 
     <!-- Brand -->
     <div class="mb-4">
-        <label for="brand" class="block text-md font-bold text-white">Brand</label>
+        <label for="brand" class="block text-md font-bold text-black">Brand</label>
         <input
             type="text"
             name="brand"
@@ -24,7 +24,7 @@
 
     <!-- Volume -->
     <div class="mb-4">
-        <label for="vol" class="block text-md font-bold text-white">Volume (ml)</label>
+        <label for="vol" class="block text-md font-bold text-black">Volume (ml)</label>
         <input
             type="text"
             name="vol"
@@ -40,7 +40,7 @@
 
     <!-- Description -->
     <div class="mb-4">
-        <label for="description" class="block text-md font-bold text-white">Description</label>
+        <label for="description" class="block text-md font-bold text-black">Description</label>
         <textarea
             name="description"
             id="description"
@@ -54,7 +54,7 @@
 
     <!-- Image -->
     <div class="mb-4">
-        <label for="image" class="block text-md font-bold text-white">Drink Image</label>
+        <label for="image" class="block text-md font-bold text-black">Drink Image</label>
         <input
             type="file"
             name="image"

@@ -65,9 +65,10 @@ class DrinkController extends Controller
      */
     public function show(Drink $drink)
     {
-        $drink->load('stocks.user');
-        $drink->load('orders');
-        return view('drinks.show', compact('drink'));
+        $stocks = $drink->stocks()->with('user')->latest()->get();
+
+        $orders = $drink->orders()->latest()->get();
+        return view('drinks.show', compact('drink', 'stocks', 'orders'));
     }
 
     /**
