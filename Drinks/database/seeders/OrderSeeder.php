@@ -14,38 +14,34 @@ class OrderSeeder extends Seeder
         $orders = [
             [
                 'customer_name' => 'Petru Svet',
-                'comment' => 'Very Good Quality!',
-                'quantity' => 'Single',
+                'comment' => 'Order in for Heineken + Smirnoff',
                 'order_date' => $currentTimestamp,
-                'drinks' => [1], 
+                'drinks' => [1, 2],
+
             ],
             [
                 'customer_name' => 'D-BO',
-                'comment' => 'Slammed them all in an hour! would recommend',
-                'quantity' => 'Four Pack',
+                'comment' => 'Put an order in for Corona + Guiness, hoping for some good stuff lad',
                 'order_date' => $currentTimestamp,
-                'drinks' => [2],
+                'drinks' => [3, 4],
             ],
             [
                 'customer_name' => 'Luca D GOAT',
-                'comment' => 'Nice Evening with 4 cans, W purchase',
-                'quantity' => 'Six Pack',
+                'comment' => 'Dissorano + Fireball for me please!',
                 'order_date' => $currentTimestamp,
-                'drinks' => [3],
+                'drinks' => [5, 6],
             ],
             [
                 'customer_name' => 'John Sinnott',
-                'comment' => 'Got Moldy',
-                'quantity' => 'Ten Pack',
+                'comment' => 'BuzzBall + Stella + Konrad, especially excited for that konrad you know',
                 'order_date' => $currentTimestamp,
-                'drinks' => [4],
+                'drinks' => [7, 8, 9],
             ],
             [
                 'customer_name' => 'KonRod',
-                'comment' => 'W Beer',
-                'quantity' => 'Twelve Pack',
+                'comment' => 'Soplica Vodka, Poitín and Absinthe, only the hard stuff for a top bloke like me',
                 'order_date' => $currentTimestamp,
-                'drinks' => [5],
+                'drinks' => [10, 11, 12],
             ],
         ];
 

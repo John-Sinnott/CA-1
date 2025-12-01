@@ -31,17 +31,14 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-
-        
         $data = $request->validate([
             'customer_name' => 'required|string|max:255',
             'comment' => 'nullable|string|max:1000',
             'order_date' => 'nullable|date',
             'drinks' => 'nullable|array',
-            'stock_type' => 'required|string',
             'quantity' => 'nullable|integer|min:1',
         ]);
-        
+
         $order = Order::create([
             'customer_name' => $data['customer_name'],
             'comment' => $data['comment'] ?? null,
@@ -49,14 +46,15 @@ class OrderController extends Controller
             'quantity' => $data['quantity'] ?? 0,
         ]);
 
-        // Attach selected drink to the pivot table with stock_type
+        // Attach selected drinks to the pivot table 
         if (!empty($data['drinks'])) {
             foreach ($data['drinks'] as $drinkId) {
-                $order->drinks()->attach($drinkId, ['stock_type' => $data['stock_type']]);
+                $order->drinks()->attach($drinkId);
             }
-        return redirect()->route('orders.edit', $order)->with('success', 'Order created!');
         }
-    }   
+
+        return redirect()->route('orders.show', $order)->with('success', 'Order created!');
+    }
     
 
     /**
@@ -96,6 +94,7 @@ class OrderController extends Controller
             'customer_name' => $data['customer_name'],
             'comment' => $data['comment'] ?? null,
             'order_date' => $data['order_date'] ?? null,
+            'quantity' => $data['quantity'] ?? $order->quantity,
         ]);
 
 

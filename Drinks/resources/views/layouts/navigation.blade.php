@@ -46,7 +46,7 @@
 
                     @if(auth()->user()->role === 'admin')
                     <x-nav-link :href="route('stocks.create')" :active="request()->routeIs('stocks.create')">
-                        {{ __('Add New Stock') }}
+                        {{ __('Add New Rating') }}
                     </x-nav-link>
                     @endif
                 </div>

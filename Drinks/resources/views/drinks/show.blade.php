@@ -22,9 +22,9 @@
 
                     {{-- shows all Existing Stocks for the specific drink--}}
                 
-                    <h4 class="font-semibold text-md mt-8">Stocks</h4>
+                    <h4 class="font-semibold text-md mt-8">Rating</h4>
                     @if($drink->stocks->isEmpty())
-                        <p class="text-gray-600">No stock yet.</p>
+                        <p class="text-gray-600">No Ratings yet.</p>
                     @else
                         <ul class="mt-4 space-y-4">
                             @foreach($drink->stocks as $stock)
@@ -56,12 +56,18 @@
                                                 </button>
                                             </form>
                                         </div>
+                                       
                                     @endif
                                 </li>
                             @endforeach
                         </ul>
                     @endif
-
+            
+                    {{-- Link to Add Rating --}}
+                    <a href="{{ route('stocks.create', $drink) }}" class="bg-cyan-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-block mt-2">
+                        Add New Rating
+                    </a>
+                    
             <div class="py-12">
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div class="bg-zinc-200 overflow-hidden shadow-sm sm:rounded-lg">
@@ -80,11 +86,7 @@
                 </div>
             </div>
                
-            {{-- Link to Add Stock --}}
-                <a href="{{ route('stocks.create', $drink) }}" class="bg-cyan-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-block mt-2">
-                    Add New Rating
-                </a>
-
+           
                 </div>
             </div>
         </div>
