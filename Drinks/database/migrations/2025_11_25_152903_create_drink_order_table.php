@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('drink_id')->constrained()->onDelete('cascade');
             $table->foreignId('order_id')->constrained()->onDelete('cascade');
+            $table->string('stock_type')->nullable();
             $table->timestamps();
         });
     }

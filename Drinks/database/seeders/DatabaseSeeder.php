@@ -10,8 +10,10 @@ class DatabaseSeeder extends Seeder
 {
 
     public function run(): void{
-        $this->call(OrderSeeder::class);
         $this->call(DrinkSeeder::class);
+        $this->call(OrderSeeder::class);
+        $this->call(StockSeeder::class);
+        
     }
     /**
      * Seed the application's database.

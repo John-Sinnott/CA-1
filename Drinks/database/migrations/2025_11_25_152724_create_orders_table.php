@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('customer_name');
             $table->string('comment');
-            $table->integer('quantity');
+            $table->string('quantity');
             $table->timestamp('order_date')->nullable();
             $table->timestamps();
         });

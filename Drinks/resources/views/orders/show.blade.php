@@ -10,14 +10,10 @@
             <div class="bg-zinc-400 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
 
-                    {{-- Drink Details --}}
-                    <h3 class="font-semibold text-lg mb-4">Drink Details</h3>
+                    {{-- Order Details --}}
+                    <h3 class="font-semibold text-lg mb-4">Order Details</h3>
                     <x-order-details
                         :order="$order" 
-                        :customer_name="$order->customer_name" 
-                        :comment="$order->comment" 
-                        :order_date="$order->order_date" 
-                        :quantity="$order->quantity" 
                     />
 
                    

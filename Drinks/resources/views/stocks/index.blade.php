@@ -11,7 +11,7 @@
                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4 inline-block">
                 Add New Review
             </a>
-
+            <!-- Creates a table display, shows all the related headings for the stocks -->
             <table class="min-w-full divide-y divide-gray-200 mt-4">
                 <thead class="bg-gray-50">
                     <tr>
@@ -23,6 +23,7 @@
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
                     </tr>
                 </thead>
+                <!-- foreach individual stock with a stock review adds their data in a table format -->
                 <tbody class="bg-white divide-y divide-gray-200">
                     @foreach($stocks as $stock)
                         <tr>
@@ -32,7 +33,9 @@
                             <td class="px-6 py-4"><textarea name="" id="">{{ $stock->comment }}</textarea></td>
                             <td class="px-6 py-4">{{ $stock->stock_type }}</td>
                             <td class="px-6 py-4  space-x-2">
+                                <!-- view link to route to stocks.show which shows the indivual stock information -->
                                 <a href="{{ route('stocks.show', $stock) }}" class="text-blue-600 hover:text-blue-900">View</a>
+                                <!-- edit link routes to stocks.edit to edit and update a stock -->
                                 <a href="{{ route('stocks.edit', $stock) }}" class="text-yellow-600 hover:text-yellow-900">Edit</a>
                                 <form action="{{ route('stocks.destroy', $stock) }}" method="POST" class="inline-block">
                                     @csrf

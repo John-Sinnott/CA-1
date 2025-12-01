@@ -8,13 +8,14 @@
     <div class="py-12 max-w-2xl mx-auto">
         <div class="bg-white p-6 rounded-lg shadow">
             <form action="{{ route('stocks.update', $stock) }}" method="POST" class="space-y-4">
+                
                 @csrf
                 @method('PUT')
-
+                <!-- This loop creates option elements from 1 - 10. so i = 1 and the loop runs untill it reaches 10 going up in increments of 1 each time creating an option value for each number. -->
                 <div>
                      <label for="rating" class="block font-medium text-gray-700">Rating</label>
                                     <select name="rating" id="rating" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
-                                         {{-- This loop creates option elements from 1 - 10. so i = 1 and the loop runs untill it reaches 10 going up in increments of 1 each time creating an option value for each number. --}}
+                                         
                                          @for ($i = 1; $i <= 10; $i++)
                                              <option value="{{ $i }}" {{ (old('rating', $stock->rating ?? '') == $i) ? 'selected' : '' }}>
                                                 {{ $i }}
@@ -28,6 +29,7 @@
                         class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">{{ $stock->comment }}</textarea>
                 </div>
 
+                <!-- select field with each option for the amount of stock selected  -->
                 <div>
                     <select name="stock_type" id="stock_type">
                                 <option  value="Single">Single Item</option>

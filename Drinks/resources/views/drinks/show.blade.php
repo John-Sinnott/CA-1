@@ -20,7 +20,7 @@
                         :stocks="$drink->stocks" 
                     />
 
-                    {{-- Existing Stocks --}}
+                    {{-- shows all Existing Stocks for the specific drink--}}
                 
                     <h4 class="font-semibold text-md mt-8">Stocks</h4>
                     @if($drink->stocks->isEmpty())
@@ -37,7 +37,7 @@
                                     <p class="font-semibold">Type: {{ $stock->stock_type }}</p>
                                     <p class="font-semibold">Review:  {{ $stock->comment }}</p>
 
-                                    {{-- Edit/Delete Buttons --}}
+                                    {{-- Edit/Delete Buttons for users with the admin role --}}
                                     @if(auth()->id() === $stock->user_id || auth()->user()->role === 'admin')
                                         <div class="mt-4 flex space-x-2">
                                             {{-- Edit button --}}
@@ -61,45 +61,29 @@
                             @endforeach
                         </ul>
                     @endif
-               
-                    {{-- Add Stock --}}
-                    <h4 class="font-bold text-md mt-8">Add Stock</h4>
-                    <form action="{{ route('drinks.stocks.store', $drink) }}" method="POST" class="space-y-4">
-                        @csrf
-                        <div class="flex gap-4">
-                            {{-- Wrapped both the option fields in a flex div so that they appear next to eachother aside from underneath with a width of 50% --}}
-                            <div class="w-1/2">
-                                <label for="rating" class="block text-black font-medium text-bold ">Leave A Rating!</label>
-                                    <select name="rating" id="rating" required class="bg-gray-200 mt-1 block w-full border-gray-300 rounded-md shadow-sm">
-                                         {{-- This loop creates option elements from 1 - 10.
-                                            so i = 1 and the loop runs untill it reaches 10 going up in increments of 1 each time creating an option value for each number. --}}
-                                         @for ($i = 1; $i <= 10; $i++)
-                                             <option value="{{ $i }}">{{ $i }}</option>
-                                        @endfor
-                                    </select>
-                            </div>
-                            {{-- This is the select field for each quantity of drink you can purchase, from single - twelve pack --}}
-                        <div class="w-1/2">
-                            <label for="stock_type" class="block text-black font-medium text-bold ">Type of Stock</label>
-                            <select name="stock_type" id="stock_type" required class="bg-gray-200 mt-1 block w-full border-gray-300 rounded-md shadow-sm">
-                                <option  value="Single">Single Item</option>
-                                <option  value="Four Pack">Four Pack</option>
-                                <option  value="Six Pack">Six Pack</option>
-                                <option  value="Ten Pack">Ten Pack</option>
-                                <option  value="Twelve Pack">Twelve Pack</option>
-                            </select>
+
+            <div class="py-12">
+                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                    <div class="bg-zinc-200 overflow-hidden shadow-sm sm:rounded-lg">
+                        <div class="p-6 text-gray-900">
+                            
+                        <h3 class="font-semibold text-lg mb-4">Orders for this Drink</h3>
+
+                        @forelse($drink->orders as $order)
+                            <x-order-details :order="$order" :current-drink="$drink" />
+                             @empty
+                                <p class="text-gray-600">No orders for this drink yet.</p>
+                        @endforelse
+
                         </div>
                     </div>
-
-                        <div>
-                            <label for="comment" class="block text-black font-medium text-bold">Review of Stock</label>
-                            <textarea name="comment" id="comment" rows="3" placeholder="Write your review here..." class="bg-gray-200 mt-1 block w-full border-gray-300 rounded-md shadow-sm"></textarea>
-                        </div>
-
-                        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                            Submit Stock
-                        </button>
-                    </form>
+                </div>
+            </div>
+               
+            {{-- Link to Add Stock --}}
+                <a href="{{ route('stocks.create', $drink) }}" class="bg-cyan-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-block mt-2">
+                    Add New Rating
+                </a>
 
                 </div>
             </div>

@@ -9,15 +9,55 @@ class OrderSeeder extends Seeder
 {
     public function run(): void
     {
-        // Create timestamp BEFORE inserting
         $currentTimestamp = now();
 
-        Order::insert([
-            ['customer_name' => 'Petru Svet',    'comment' => "Very Good Quality!", 'quantity' => 6, 'order_date' => $currentTimestamp],
-            ['customer_name' => 'D-BO',          'comment' => "Slammed them all in an hour! would reccommend", 'quantity' => 12, 'order_date' => $currentTimestamp],
-            ['customer_name' => 'Luca D GOAT',   'comment' => "Nice Evening with 4 cans, W purchase", 'quantity' => 4,  'order_date' => $currentTimestamp],
-            ['customer_name' => 'John Sinnott',  'comment' => "Got Moldy", 'quantity' => 10, 'order_date' => $currentTimestamp],
-            ['customer_name' => 'KonRod',        'comment' => "W Beer", 'quantity' => 2, 'order_date' => $currentTimestamp],
-        ]);
+        $orders = [
+            [
+                'customer_name' => 'Petru Svet',
+                'comment' => 'Very Good Quality!',
+                'quantity' => 'Single',
+                'order_date' => $currentTimestamp,
+                'drinks' => [1], 
+            ],
+            [
+                'customer_name' => 'D-BO',
+                'comment' => 'Slammed them all in an hour! would recommend',
+                'quantity' => 'Four Pack',
+                'order_date' => $currentTimestamp,
+                'drinks' => [2],
+            ],
+            [
+                'customer_name' => 'Luca D GOAT',
+                'comment' => 'Nice Evening with 4 cans, W purchase',
+                'quantity' => 'Six Pack',
+                'order_date' => $currentTimestamp,
+                'drinks' => [3],
+            ],
+            [
+                'customer_name' => 'John Sinnott',
+                'comment' => 'Got Moldy',
+                'quantity' => 'Ten Pack',
+                'order_date' => $currentTimestamp,
+                'drinks' => [4],
+            ],
+            [
+                'customer_name' => 'KonRod',
+                'comment' => 'W Beer',
+                'quantity' => 'Twelve Pack',
+                'order_date' => $currentTimestamp,
+                'drinks' => [5],
+            ],
+        ];
+
+        foreach ($orders as $data) {
+            $drinkIds = $data['drinks'] ?? [];
+            unset($data['drinks']); // remove before creating order
+
+            $order = Order::create($data);
+
+            if (!empty($drinkIds)) {
+                $order->drinks()->attach($drinkIds);
+            }
+        }
     }
 }

@@ -66,6 +66,7 @@ class DrinkController extends Controller
     public function show(Drink $drink)
     {
         $drink->load('stocks.user');
+        $drink->load('orders');
         return view('drinks.show', compact('drink'));
     }
 
